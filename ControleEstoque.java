@@ -82,8 +82,10 @@ public class ControleEstoque {
         System.out.print("Descrição: ");
         produto.descricao = input.nextLine();
 
-        System.out.print("Preço Unitário (ex: 8000,20): ");
-        produto.precoUnitario = input.nextDouble();
+        System.out.print("Preço Unitário: ");
+        produto.precoUnitario = Double.parseDouble(
+            input.nextLine().replace(",",".")
+        );
 
         System.out.print("Quantidade em Estoque: ");
         produto.qtdEstoque = input.nextInt();
@@ -183,9 +185,9 @@ public class ControleEstoque {
             if(produto.titulo.equalsIgnoreCase(titulo)) {
 
                 System.out.print("Novo preço: ");
-                produto.precoUnitario = input.nextDouble();
-
-                input.nextLine();
+                produto.precoUnitario = Double.parseDouble(
+            input.nextLine().replace(",",".")
+        );
 
                 System.out.println("Preço atualizado.");
                 return;
